@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+  "name": "Bitprice",
+  "version": "1.5.0",
+  "description": "show bitprice simply",
+  "icons": {
+    "32": "src/imgs/delivery-32-v4.png",
+    "128": "src/imgs/delivery-128-v8.png"
+  },
+  "sidebar_action": {
+    "default_page": "index.html",
+    "default_icon": {
+      "32": "src/imgs/delivery-32-v4.png"
+    },
+    "default_title": "bitprice",
+    "use_navigation_bar": false
+  }
