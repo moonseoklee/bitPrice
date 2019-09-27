@@ -9,7 +9,8 @@
 	<script src="js/jquery.tablesorter.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>   
 	<script src="src/constants/index.js"></script>
-	
+	<script data-main="src/constants/index.js" src="js/require.js"></script>
+
 	<link rel="stylesheet" href="css/bootstrap.min.css" />
 	<link rel="stylesheet" href="css/main.css">
   </head>
@@ -19,9 +20,10 @@
 		<div id="Tabs" role="tabpanel">
 			<!-- Nav tabs -->
 			<ul class="nav nav-tabs" role="tablist">
-				<li class="active"><a href="#bithumb" id="bithumb" aria-controls="bithumb" role="tab" data-toggle="tab">
-					 빗썸</a></li>
+				<li class="active"><a href="#bithumb" id="bithumb" aria-controls="bithumb" role="tab" data-toggle="tab">빗썸</a></li>
 				<li><a href="#upbit" id="upbit" aria-controls="upbit" role="tab" data-toggle="tab">업비트</a></li>
+				<li><a href="#coinone" id="coinone" aria-controls="coinone" role="tab" data-toggle="tab">코인원</a></li>
+				<li><a href="#bitfinex" id="bitfinex" aria-controls="bitfinex" role="tab" data-toggle="tab">비트파이넥스</a></li>
 			</ul>
 			<!-- Tab panes -->
 			<div class="tab-content" style="padding-top: 10px">
@@ -29,8 +31,21 @@
 				    <table id="price-data" class="tablesorter">                   
               
 					</table>
+				</div>
 				<div role="tabpanel" class="tab-pane" id="upbit">
-				   <div id="price-data"></div>
+					<table id="price-data" class="tablesorter">                   
+              
+					</table>
+				</div>
+				<div role="tabpanel" class="tab-pane" id="coinone">
+					<table id="price-data" class="tablesorter">                   
+              
+					</table>
+				</div>
+				<div role="tabpanel" class="tab-pane" id="bitfinex">
+					<table id="price-data" class="tablesorter">                   
+              
+					</table>
 				</div>
 			</div>
 		</div>
