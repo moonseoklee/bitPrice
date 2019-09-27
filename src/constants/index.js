@@ -1,6 +1,12 @@
 
 let sorterFlag = true;
+let rate = 0;
 
+$.getJSON('https://api.exchangeratesapi.io/latest?base=USD')
+    .done(function(data){
+        rate = Number(data.rates.KRW);
+        
+    })
 $.tablesorter.addParser({ 
     // set a unique id 
     id: 'second',
@@ -100,10 +106,7 @@ function setBitfinex(data,status){
         }
     }
     
-    $.getJSON('https://api.exchangeratesapi.io/latest?base=USD')
-    .done(function(data){
-        arr['rate'] = data.rates.KRW;
-    })
+    
     
     
     setData(arr,status);
@@ -124,7 +127,7 @@ function setHtml(data,status){
     if(choosen=="bithumb"){
         coins = data.data;        
     }else{coins=data;}
-
+    
     let html;
     let updatedAt;
     html = "<thead><tr>";
@@ -146,7 +149,9 @@ function setHtml(data,status){
             html+=parseCoinone(coin,coins[coin]);
         }
         }else if(choosen=="bitfinex"){
-            html+=parseBitfinex(coin,coins[coin],coins['rate']);
+            
+            html+=parseBitfinex(coin,coins[coin]);
+            
         }
     }
 
@@ -242,12 +247,15 @@ function parseCoinone(coin, data) {
     return html;
 }
 
-function parseBitfinex(coin,data,rate){
-    console.log(data);
+function parseBitfinex(coin,data){
+    
     let price = toCommaStringF(Number(data[7]*rate).toFixed(2));
-    let diff = data.closing_price - data.opening_price;
-    let ratio = (diff / data.opening_price * 100).toFixed(2);
-    let trade = parseInt(data.volume * data.closing_price / 10000);
+    
+    let diff = toCommaStringF(Number(data[5]*rate).toFixed(2));
+    let ratio =toCommaStringF(Number(data[6]*100).toFixed(2));
+    
+    
+    
     let color;
     if (diff > 0)
         color = "red";
@@ -257,7 +265,7 @@ function parseBitfinex(coin,data,rate){
     let html = "<tr><td scope='row' data-label='코인' class='center'>" + coin.toUpperCase() + "</td>";
     html += "<td data-label='시세' class='right'>" + price.toLocaleString() + " 원 </td>";
     html += "<td data-label='변동률 (%)' class='right " + color + "'>" + diff.toLocaleString() + " 원 (" + ratio + "%)</td>";
-    html += "<td data-label='거래금액' class='right'>" + trade.toLocaleString() + " 만원 </td>";
+    html += "<td data-label='거래금액' class='right'>" + data[8] + " "+coin+" </td>";
     html += "</tr>";
     
     return html;

@@ -10,13 +10,13 @@
     ["https://api.bitfinex.com/"]
   ,
   "icons": {
-    "32": "src/imgs/delivery-32-v4.png",
-    "128": "src/imgs/delivery-128-v8.png"
+    "32": "src/imgs/sBitcoin.png",
+    "128": "src/imgs/bBitcoin.png"
   },
   "sidebar_action": {
     "default_page": "index.html",
     "default_icon": {
-      "32": "src/imgs/delivery-32-v4.png"
+      "32": "src/imgs/sBitcoin.png"
     },
     "default_title": "bitprice",
     "use_navigation_bar": false
