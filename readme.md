@@ -5,7 +5,7 @@
 
 
 ![loginView](./image/portfolio-2.PNG)
-유명 암호화폐 거래소의 코인 별 가격을 Whale browser extension으로 보여줍니다.
+#유명 암호화폐 거래소의 코인 별 가격을 Whale browser extension으로 보여줍니다.
 
   
 ### Tech
